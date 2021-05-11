@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components/native'
 
-export default function App() {
+// COMPONENTS
+import AppBar from './components/AppBar'
+import ToolBar from './components/ToolBar'
+import Users from './components/Users'
+import Story from './components/Story'
+import Feed from './components/Feed'
+// COMPONENTS
+import {StatusBar, ScrollView} from "react-native";
+const Container = styled.SafeAreaView`
+  flex: 1;
+
+`;
+
+
+const App = () =>{
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+      {/* <> and </> are the React shortcut for Fragment component */}
+      <StatusBar
+        backgroundColor="#FFFFF"
+        barStyle="dark-content" />
+      <Container>
+        <ScrollView>
+          <AppBar />
+          <ToolBar/>
+          <Users/>
+          <Story/>
+          <Feed/>
+        </ScrollView>
+      </Container>
+    </>
+  )
+  
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+
